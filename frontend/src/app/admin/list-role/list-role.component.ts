@@ -38,7 +38,8 @@ export class ListRoleComponent implements OnInit {
   ngOnInit(): void {
     this._roleService.listRole().subscribe(
       (res) => {
-        this.roleData = res.role;
+        this.roleData = res.roleList;
+        console.log(this.roleData);
         this.dataSource = new MatTableDataSource(this.roleData);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

@@ -145,8 +145,21 @@ export class ListTaskComponent implements OnInit {
     this._boardService.deleteTask(task).subscribe({
       next: (v) => {
         let index = this.taskData.indexOf(task);
+        let status = task.taskStatus;
         if (index > -1) {
           this.taskData.splice(index, 1);
+          if (status === 'to-do') {
+            let indexTodo = this.taskTodo.indexOf(task);
+            this.taskTodo.splice(indexTodo, 1);
+          }
+          if (status === 'in-progress') {
+            let indexInProgress = this.taskInprogress.indexOf(task);
+            this.taskInprogress.splice(indexInProgress, 1);
+          }
+          if (status === 'done') {
+            let indexDone = this.taskInprogress.indexOf(task);
+            this.taskDone.splice(indexDone, 1);
+          }
           this.message = v.message;
           this.openSnackBarSuccesfull();
         }
