@@ -19,6 +19,7 @@ export class UpdateUserComponent implements OnInit {
   _id: string;
   newPass: string;
   roles: Array<any>;
+
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   durationInSeconds: number = 2;
@@ -43,7 +44,6 @@ export class UpdateUserComponent implements OnInit {
         (res) => {
           this.registerData = res.userfind;
           this.registerData.password = this.newPass;
-          console.log(this.registerData);
 
           this._roleService.listRole().subscribe(
             (res) => {

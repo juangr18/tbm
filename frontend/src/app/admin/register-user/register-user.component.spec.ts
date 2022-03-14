@@ -1,16 +1,23 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { RegisterUserComponent } from './register-user.component';
 
-describe('RegisterUserComponent', () => {
+describe('(1) Test del componente "RegisterUserComponent"', () => {
   let component: RegisterUserComponent;
   let fixture: ComponentFixture<RegisterUserComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterUserComponent ]
-    })
-    .compileComponents();
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule,
+        MatSnackBarModule,
+      ],
+      declarations: [RegisterUserComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +26,7 @@ describe('RegisterUserComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Debe existir el componente RegisterUserComponent', () => {
     expect(component).toBeTruthy();
   });
 });

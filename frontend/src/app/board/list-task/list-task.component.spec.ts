@@ -1,4 +1,7 @@
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ListTaskComponent } from './list-task.component';
 
@@ -8,9 +11,9 @@ describe('ListTaskComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListTaskComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule, MatSnackBarModule, DragDropModule],
+      declarations: [ListTaskComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
